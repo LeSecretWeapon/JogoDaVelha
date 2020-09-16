@@ -6,7 +6,7 @@
 #include <conio.h>
 #include <locale.h>
 
-//Variáveis Globais
+//VariÃ¡veis Globais
 char Gtabuleiro [5][5] = {{' ', '|', ' ', '|', ' '},
                          {'-', '+', '-', '+', '-'},
                          {' ', '|', ' ', '|', ' '},
@@ -39,7 +39,7 @@ struct Gestatisticas
 
 struct Gestatisticas stats = { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
 
-//Declaração das Funções
+//DeclaraÃ§Ã£o das FunÃ§Ãµes
 void centralizarTexto(char texto[], int tamanho);
 void linhaH(void);
 int menu(void);
@@ -56,7 +56,7 @@ void pegarStats(FILE* arquivo);
 void JogoVelhaPvp(void);
 void JogoVelhaPve(void);
 
-//Função Main
+//FunÃ§Ã£o Main
 int main()
 {
     system("cls");
@@ -94,7 +94,7 @@ int main()
     }
 }
 
-//Funções
+//FunÃ§Ãµes
 void centralizarTexto(char texto[], int tamanho)
 {
     CONSOLE_SCREEN_BUFFER_INFO csbi;
@@ -137,11 +137,11 @@ int menu(void)
 
     centralizarTexto("JOGO DA VELHA", 13);
     printf("\n");
-    centralizarTexto("Desenvolvido por: Vinícius Godoy", 32);
+    centralizarTexto("Desenvolvido por: VinÃ­cius Godoy", 32);
     printf("\n");
     centralizarTexto("Jogar com um Amigo(Pressionar 1)", 32);
     centralizarTexto("Jogar com o Computador(Pressionar 2)", 36);
-    centralizarTexto("Ver estatísticas(Pressionar 3)", 30);
+    centralizarTexto("Ver estatÃ­sticas(Pressionar 3)", 30);
     centralizarTexto("Como Jogar(Pressionar 4)", 25);
     centralizarTexto("Sair(Pressionar 5)", 18);
     printf("\n%*.s", tamanhoPad(0), "");
@@ -155,23 +155,23 @@ int menu(void)
 void tutorial(void)
 {
     centralizarTexto("COMO JOGAR\n", 10);
-    printf("Digite o número da posição onde deseja colocar seu símbolo (X ou O), as posições são enumeradas conforme mostrado abaixo\n");
-    //Muda o tabuleiro pra mostrar as posições enumeradas
+    printf("Digite o nÃºmero da posiÃ§Ã£o onde deseja colocar seu sÃ­mbolo (X ou O), as posiÃ§Ãµes sÃ£o enumeradas conforme mostrado abaixo\n");
+    //Muda o tabuleiro pra mostrar as posiÃ§Ãµes enumeradas
     Gtabuleiro[0][0] = '1';Gtabuleiro[0][2] = '2';Gtabuleiro[0][4] = '3';
     Gtabuleiro[2][0] = '4';Gtabuleiro[2][2] = '5';Gtabuleiro[2][4] = '6';
     Gtabuleiro[4][0] = '7';Gtabuleiro[4][2] = '8';Gtabuleiro[4][4] = '9';
     printarTabuleiro(Gtabuleiro);
     printf("\n");
     centralizarTexto("OBJETIVO\n", 8);
-    printf("Alinhe três dos mesmos símbolos (X ou O) seguidos, seja diagonal, vertical ou horizontalmente. Como indicado abaixo\n");
-    //Muda o tabuleiro pra mostrar uma vitória
+    printf("Alinhe trÃªs dos mesmos sÃ­mbolos (X ou O) seguidos, seja diagonal, vertical ou horizontalmente. Como indicado abaixo\n");
+    //Muda o tabuleiro pra mostrar uma vitÃ³ria
     Gtabuleiro[0][0] = 'X';Gtabuleiro[0][2] = ' ';Gtabuleiro[0][4] = ' ';
     Gtabuleiro[2][0] = ' ';Gtabuleiro[2][2] = 'X';Gtabuleiro[2][4] = ' ';
     Gtabuleiro[4][0] = ' ';Gtabuleiro[4][2] = ' ';Gtabuleiro[4][4] = 'X';
     printarTabuleiro(Gtabuleiro);
     printf("\n");
-    printf("Caso nenhum dos jogadores consiga completar uma sequência de três símbolos o jogo dá 'velha', em outras palavras, empata\n");
-    //Reseta o tabuleiro pro padrão
+    printf("Caso nenhum dos jogadores consiga completar uma sequÃªncia de trÃªs sÃ­mbolos o jogo dÃ¡ 'velha', em outras palavras, empata\n");
+    //Reseta o tabuleiro pro padrÃ£o
     Gtabuleiro[0][0] = ' ';Gtabuleiro[2][2] = ' ';Gtabuleiro[4][4] = ' ';
     centralizarTexto("BOM JOGO !\n\n", 10);
     centralizarTexto("PARA VOLTAR AO MENU PRESSIONE B\n", 32);
@@ -294,7 +294,7 @@ void colocarPeca(int posicao, int usuario)
     {
     case 1:
         if(Gtabuleiro[0][0] == 'X' || Gtabuleiro[0][0] == 'O'){
-            printf("\a[ERRO]Você digitou uma posição inválida ! Digite uma posição vazia: ");
+            printf("\a[ERRO]VocÃª digitou uma posiÃ§Ã£o invÃ¡lida ! Digite uma posiÃ§Ã£o vazia: ");
             scanf("%i", &posicao);
             colocarPeca(posicao, usuario);
         }else{
@@ -308,7 +308,7 @@ void colocarPeca(int posicao, int usuario)
         break;
     case 2:
         if(Gtabuleiro[0][2] == 'X' || Gtabuleiro[0][2] == 'O'){
-            printf("\a[ERRO]Você digitou uma posição inválida ! Digite uma posição vazia: ");
+            printf("\a[ERRO]VocÃª digitou uma posiÃ§Ã£o invÃ¡lida ! Digite uma posiÃ§Ã£o vazia: ");
             scanf("%i", &posicao);
             colocarPeca(posicao, usuario);
         }else{
@@ -322,7 +322,7 @@ void colocarPeca(int posicao, int usuario)
         break;
     case 3:
         if(Gtabuleiro[0][4] == 'X' || Gtabuleiro[0][4] == 'O'){
-            printf("\a[ERRO]Você digitou uma posição inválida ! Digite uma posição vazia: ");
+            printf("\a[ERRO]VocÃª digitou uma posiÃ§Ã£o invÃ¡lida ! Digite uma posiÃ§Ã£o vazia: ");
             scanf("%i", &posicao);
             colocarPeca(posicao, usuario);
         }else{
@@ -336,7 +336,7 @@ void colocarPeca(int posicao, int usuario)
         break;
     case 4:
         if(Gtabuleiro[2][0] == 'X' || Gtabuleiro[2][0] == 'O'){
-            printf("\a[ERRO]Você digitou uma posição inválida ! Digite uma posição vazia: ");
+            printf("\a[ERRO]VocÃª digitou uma posiÃ§Ã£o invÃ¡lida ! Digite uma posiÃ§Ã£o vazia: ");
             scanf("%i", &posicao);
             colocarPeca(posicao, usuario);
         }else{
@@ -350,7 +350,7 @@ void colocarPeca(int posicao, int usuario)
         break;
     case 5:
         if(Gtabuleiro[2][2] == 'X' || Gtabuleiro[2][2] == 'O'){
-            printf("\a[ERRO]Você digitou uma posição inválida ! Digite uma posição vazia: ");
+            printf("\a[ERRO]VocÃª digitou uma posiÃ§Ã£o invÃ¡lida ! Digite uma posiÃ§Ã£o vazia: ");
             scanf("%i", &posicao);
             colocarPeca(posicao, usuario);
         }else{
@@ -364,7 +364,7 @@ void colocarPeca(int posicao, int usuario)
         break;
     case 6:
         if(Gtabuleiro[2][4] == 'X' || Gtabuleiro[2][4] == 'O'){
-            printf("\a[ERRO]Você digitou uma posição inválida ! Digite uma posição vazia: ");
+            printf("\a[ERRO]VocÃª digitou uma posiÃ§Ã£o invÃ¡lida ! Digite uma posiÃ§Ã£o vazia: ");
             scanf("%i", &posicao);
             colocarPeca(posicao, usuario);
         }else{
@@ -378,7 +378,7 @@ void colocarPeca(int posicao, int usuario)
         break;
     case 7:
         if(Gtabuleiro[4][0] == 'X' || Gtabuleiro[4][0] == 'O'){
-            printf("\a[ERRO]Você digitou uma posição inválida ! Digite uma posição vazia: ");
+            printf("\a[ERRO]VocÃª digitou uma posiÃ§Ã£o invÃ¡lida ! Digite uma posiÃ§Ã£o vazia: ");
             scanf("%i", &posicao);
             colocarPeca(posicao, usuario);
         }else{
@@ -392,7 +392,7 @@ void colocarPeca(int posicao, int usuario)
         break;
     case 8:
         if(Gtabuleiro[4][2] == 'X' || Gtabuleiro[4][2] == 'O'){
-            printf("\a[ERRO]Você digitou uma posição inválida ! Digite uma posição vazia: ");
+            printf("\a[ERRO]VocÃª digitou uma posiÃ§Ã£o invÃ¡lida ! Digite uma posiÃ§Ã£o vazia: ");
             scanf("%i", &posicao);
             colocarPeca(posicao, usuario);
         }else{
@@ -406,7 +406,7 @@ void colocarPeca(int posicao, int usuario)
         break;
     case 9:
         if(Gtabuleiro[4][4] == 'X' || Gtabuleiro[4][4] == 'O'){
-            printf("\a[ERRO]Você digitou uma posição inválida ! Digite uma posição vazia: ");
+            printf("\a[ERRO]VocÃª digitou uma posiÃ§Ã£o invÃ¡lida ! Digite uma posiÃ§Ã£o vazia: ");
             scanf("%i", &posicao);
             colocarPeca(posicao, usuario);
         }else{
@@ -419,7 +419,7 @@ void colocarPeca(int posicao, int usuario)
         }
         break;
     default:
-        printf("\a[ERRO]Você colocou um número de posição inexistente! Digite uma posição existente: ");
+        printf("\a[ERRO]VocÃª colocou um nÃºmero de posiÃ§Ã£o inexistente! Digite uma posiÃ§Ã£o existente: ");
         scanf("%i", &posicao);
         colocarPeca(posicao, usuario);
     }
@@ -436,7 +436,7 @@ int checarVitoria(int usuario, char posicoes[5][5])
     }else if(usuario == 3){
         vit = 3;}
 
-    //Checa as vitórias horizontais
+    //Checa as vitÃ³rias horizontais
     for(i = 0; i <= 4; i += 2){
         for(j = 0; j <= 4; j += 2){
             if(posicoes[i][j]== '1'){
@@ -450,7 +450,7 @@ int checarVitoria(int usuario, char posicoes[5][5])
         }
     }
 
-    //Checa as vitórias verticais
+    //Checa as vitÃ³rias verticais
     for(i = 0; i <= 4; i += 2){
         for(j = 0; j <= 4; j += 2){
             if(posicoes[j][i]== '1'){contvit++;}
@@ -460,7 +460,7 @@ int checarVitoria(int usuario, char posicoes[5][5])
         }else{contvit = 0;}
     }
 
-    //Checa as vitórias diagonais
+    //Checa as vitÃ³rias diagonais
     for(i = 0; i <= 4; i += 2){
         if(i == 0){
             if(posicoes[i][0]== '1'){contvit++;}
@@ -483,7 +483,7 @@ void resetarJogo(int rodada, int usuario, int vitoria, char simbolo)
 {
     int i, j;
 
-    //Laço for que reseta o tabuleiro
+    //LaÃ§o for que reseta o tabuleiro
     for(i = 0; i <= 5; i++){
         if(i%2 != 0){
         for(j = 0; j <= 5; j++){
@@ -503,7 +503,7 @@ void resetarJogo(int rodada, int usuario, int vitoria, char simbolo)
         }
         }
     }
-    //Funções que copiam o tabuleiro principal pros individuais
+    //FunÃ§Ãµes que copiam o tabuleiro principal pros individuais
     memcpy(Gposicoes1, Gtabuleiro, sizeof(Gtabuleiro));
     memcpy(Gposicoes2, Gtabuleiro, sizeof(Gtabuleiro));
 
@@ -569,7 +569,7 @@ void salvarStats(int vitoria, int tipo)
     break;
     }
 
-    fStats = fopen("estatistícas.txt", "w");
+    fStats = fopen("estatistÃ­cas.txt", "w");
 
     fprintf(fStats, "Total de partidas jogadas: %d\n", stats.partidasJogadasTotal);
     fprintf(fStats, "Partidas jogadas Jogador 1: %d\n", stats.J1partidasJogadas);
@@ -584,17 +584,17 @@ void salvarStats(int vitoria, int tipo)
     fprintf(fStats, "Partidas empatadas Jogador 1: %d\n", stats.J1partidasVelhas);
     fprintf(fStats, "Partidas empatadas Jogador 2: %d\n", stats.J2partidasVelhas);
     fprintf(fStats, "Partidas empatadas PC: %d\n", stats.PCpartidasVelhas);
-    fprintf(fStats, "Porcentagem vitórias Jogador 1: %f\n", stats.J1porcentVitorias);
-    fprintf(fStats, "Porcentagem vitórias Jogador 2: %f\n", stats.J2porcentVitorias);
-    fprintf(fStats, "Porcentagem vitórias PC: %f\n", stats.PCporcentVitorias);
-    fprintf(fStats,"Último Tabuleiro vitorioso:\n");
+    fprintf(fStats, "Porcentagem vitÃ³rias Jogador 1: %f\n", stats.J1porcentVitorias);
+    fprintf(fStats, "Porcentagem vitÃ³rias Jogador 2: %f\n", stats.J2porcentVitorias);
+    fprintf(fStats, "Porcentagem vitÃ³rias PC: %f\n", stats.PCporcentVitorias);
+    fprintf(fStats,"Ãšltimo Tabuleiro vitorioso:\n");
     for(i = 0; i < 5; i++){
         for(j = 0; j < 5; j++){
             fprintf(fStats, "%c", stats.ultimoTabuleiro[i][j]);
         }
         fprintf(fStats, "\n");
     }
-    fprintf(fStats, "Último vitorioso: %s\n", stats.ultimoVitorioso);
+    fprintf(fStats, "Ãšltimo vitorioso: %s\n", stats.ultimoVitorioso);
 
     fclose(fStats);
 }
@@ -604,33 +604,33 @@ void menuStats(void)
     FILE *fStats;
 
     pegarStats(fStats);
-    centralizarTexto("ESTATÍSTICAS", 12);
+    centralizarTexto("ESTATÃSTICAS", 12);
     printf("\n");
     printf("%*.sTOTAL DE PARTIDAS JOGADAS: %-2d\n\n", tamanhoPad(29), "", stats.partidasJogadasTotal);
-    centralizarTexto("ULTÍMO JOGO", 11);
+    centralizarTexto("ULTÃMO JOGO", 11);
     printarTabuleiro(stats.ultimoTabuleiro);
-    printf("%*.sCampeão: %s\n", tamanhoPad(18),"", stats.ultimoVitorioso);
+    printf("%*.sCampeÃ£o: %s\n", tamanhoPad(18),"", stats.ultimoVitorioso);
     linhaH();
     centralizarTexto("JOGADOR 1", 9);
     printf("%*.sPartidas Jogadas: %-3d\n", tamanhoPad(21),"", stats.J1partidasJogadas);
     printf("%*.sPartidas Ganhas: %-3d\n", tamanhoPad(20),"", stats.J1partidasGanhas);
     printf("%*.sPartidas Perdidas: %-3d\n", tamanhoPad(22),"", stats.J1partidasPerdidas);
     printf("%*.sPartidas em que deu Velha: %-3d\n", tamanhoPad(30),"", stats.J1partidasVelhas);
-    printf("%*.sPorcentagem de Vitórias: %-4.2f%%\n", tamanhoPad(30),"", stats.J1porcentVitorias);
+    printf("%*.sPorcentagem de VitÃ³rias: %-4.2f%%\n", tamanhoPad(30),"", stats.J1porcentVitorias);
     linhaH();
     centralizarTexto("JOGADOR 2", 9);
     printf("%*.sPartidas Jogadas: %-3d\n", tamanhoPad(21),"", stats.J2partidasJogadas);
     printf("%*.sPartidas Ganhas: %-3d\n", tamanhoPad(20),"", stats.J2partidasGanhas);
     printf("%*.sPartidas Perdidas: %-3d\n", tamanhoPad(22),"", stats.J2partidasPerdidas);
     printf("%*.sPartidas em que deu Velha: %-3d\n", tamanhoPad(30),"", stats.J2partidasVelhas);
-    printf("%*.sPorcentagem de Vitórias: %-4.2f%%\n", tamanhoPad(30),"", stats.J2porcentVitorias);
+    printf("%*.sPorcentagem de VitÃ³rias: %-4.2f%%\n", tamanhoPad(30),"", stats.J2porcentVitorias);
     linhaH();
     centralizarTexto("COMPUTADOR", 10);
     printf("%*.sPartidas Jogadas: %-3d\n", tamanhoPad(21),"", stats.PCpartidasJogadas);
     printf("%*.sPartidas Ganhas: %-3d\n", tamanhoPad(20),"", stats.PCpartidasGanhas);
     printf("%*.sPartidas Perdidas: %-3d\n", tamanhoPad(22),"", stats.PCpartidasPerdidas);
     printf("%*.sPartidas em que deu Velha: %-3d\n", tamanhoPad(30),"", stats.PCpartidasVelhas);
-    printf("%*.sPorcentagem de Vitórias: %-4.2f%%\n\n", tamanhoPad(30),"", stats.PCporcentVitorias);
+    printf("%*.sPorcentagem de VitÃ³rias: %-4.2f%%\n\n", tamanhoPad(30),"", stats.PCporcentVitorias);
     printf("%*.sPRESSIONE B PARA VOLTAR AO MENU", tamanhoPad(32), "");
     printf("\n%*.s", tamanhoPad(0), "");
     do{
@@ -646,7 +646,7 @@ void pegarStats(FILE* arquivo)
 {
     int i, j;
 
-    arquivo = fopen("estatistícas.txt", "r");
+    arquivo = fopen("estatistÃ­cas.txt", "r");
     fseek(arquivo, 27, SEEK_SET);
     fscanf(arquivo,"%d", &stats.partidasJogadasTotal);
     fseek(arquivo, 29, SEEK_CUR);
@@ -699,9 +699,9 @@ void JogoVelhaPvp(void)
     char simbolo = 'X';
 
     while(rodada <= 9 && vitoria == 0){
-        printf("%*.s%iº RODADA - JOGADOR %i\n", tamanhoPad(21), "", rodada, usuario);
+        printf("%*.s%iÂº RODADA - JOGADOR %i\n", tamanhoPad(21), "", rodada, usuario);
         printarTabuleiro(Gtabuleiro);
-        printf("%*.sDigite o número do espaço onde deseja colocar o %c: ", tamanhoPad(51), "", simbolo);
+        printf("%*.sDigite o nÃºmero do espaÃ§o onde deseja colocar o %c: ", tamanhoPad(51), "", simbolo);
         scanf("%i", &pos);
         colocarPeca(pos, usuario);
         if(usuario == 1){vitoria = checarVitoria(usuario, Gposicoes1);}
@@ -721,13 +721,13 @@ void JogoVelhaPvp(void)
         printf("\n");
         if(vitoria == 1){
             salvarStats(vitoria, 1);
-            printf("%*.s\aParabéns Jogador 1 você ganhou !!!\n\n", tamanhoPad(34), "");
+            printf("%*.s\aParabÃ©ns Jogador 1 vocÃª ganhou !!!\n\n", tamanhoPad(34), "");
         }else if(vitoria == 2){
             salvarStats(vitoria, 1);
-            printf("%*.s\aParabéns Jogador 2 você ganhou !!!\n\n", tamanhoPad(34), "");
+            printf("%*.s\aParabÃ©ns Jogador 2 vocÃª ganhou !!!\n\n", tamanhoPad(34), "");
         }else{
             salvarStats(0, 1);
-            printf("%*.s\aDeu velha ! Ninguém ganhou :(\n\n", tamanhoPad(29), "");
+            printf("%*.s\aDeu velha ! NinguÃ©m ganhou :(\n\n", tamanhoPad(29), "");
         }
         printf("%*.sPRESSIONE R PARA JOGAR NOVAMENTE | PRESSIONE B PARA VOLTAR AO MENU", tamanhoPad(67), "");
         printf("\n%*.s", tamanhoPad(0), "");
@@ -747,8 +747,8 @@ void JogoVelhaPvp(void)
 void JogoVelhaPve(void)
 {
     centralizarTexto("ESCOLHA A DIFICULDADE\n", 21);
-    centralizarTexto("Aleatório (Pressione 1)\n", 23);
-    centralizarTexto("IA Básica (Pressione 2)\n", 23);
+    centralizarTexto("AleatÃ³rio (Pressione 1)\n", 23);
+    centralizarTexto("IA BÃ¡sica (Pressione 2)\n", 23);
     centralizarTexto("\n\nPRESSIONE B PARA VOLTAR", 23);
     printf("%*.s", tamanhoPad(0),"");
     do{
@@ -766,16 +766,16 @@ void JogoVelhaPve(void)
 
         while(rodada <= 9 && vitoria == 0){
             if(usuario == 1){
-                printf("%*.s%iº RODADA - JOGADOR %i\n", tamanhoPad(20), "", rodada, usuario);
+                printf("%*.s%iÂº RODADA - JOGADOR %i\n", tamanhoPad(20), "", rodada, usuario);
                 printarTabuleiro(Gtabuleiro);
-                printf("%*.sDigite o número do espaço onde deseja colocar o %c: ", tamanhoPad(51), "", simbolo);
+                printf("%*.sDigite o nÃºmero do espaÃ§o onde deseja colocar o %c: ", tamanhoPad(51), "", simbolo);
                 scanf("%i", &pos);
                 colocarPeca(pos, usuario);
             }else if(usuario == 3){
-                printf("%*.s%iº RODADA - COMPUTADOR\n", tamanhoPad(21), "", rodada);
+                printf("%*.s%iÂº RODADA - COMPUTADOR\n", tamanhoPad(21), "", rodada);
                 numpc = escolherPecaRand();
                 printarTabuleiro(Gtabuleiro);
-                printf("%*.sO Computador escolheu posicionar uma peça na posição %d!\n", tamanhoPad(55), "", numpc);
+                printf("%*.sO Computador escolheu posicionar uma peÃ§a na posiÃ§Ã£o %d!\n", tamanhoPad(55), "", numpc);
                 colocarPeca(numpc, 3);
             }
             if(usuario == 1){vitoria = checarVitoria(usuario, Gposicoes1);}
@@ -795,13 +795,13 @@ void JogoVelhaPve(void)
             printf("\n");
             if(vitoria == 1){
                 salvarStats(vitoria, 2);
-                printf("%*.s\aParabéns Jogador 1 você ganhou !!!\n\n", tamanhoPad(34), "");
+                printf("%*.s\aParabÃ©ns Jogador 1 vocÃª ganhou !!!\n\n", tamanhoPad(34), "");
             }else if(vitoria == 3){
                 salvarStats(vitoria, 2);
                 printf("%*.s\aO Computador ganhou !!!\n\n", tamanhoPad(23), "");
             }else{
                 salvarStats(0, 2);
-                printf("%*.s\aDeu velha ! Ninguém ganhou :(\n\n", tamanhoPad(29), "");
+                printf("%*.s\aDeu velha ! NinguÃ©m ganhou :(\n\n", tamanhoPad(29), "");
             }
             printf("%*.sPRESSIONE R PARA JOGAR NOVAMENTE | PRESSIONE B PARA VOLTAR AO MENU", tamanhoPad(67), "");
             printf("\n%*.s", tamanhoPad(0), "");
@@ -825,16 +825,16 @@ void JogoVelhaPve(void)
 
         while(rodada <= 9 && vitoria == 0){
             if(usuario == 1){
-                printf("%*.s%iº RODADA - JOGADOR %i\n", tamanhoPad(20), "", rodada, usuario);
+                printf("%*.s%iÂº RODADA - JOGADOR %i\n", tamanhoPad(20), "", rodada, usuario);
                 printarTabuleiro(Gtabuleiro);
-                printf("%*.sDigite o número do espaço onde deseja colocar o %c: ", tamanhoPad(51), "", simbolo);
+                printf("%*.sDigite o nÃºmero do espaÃ§o onde deseja colocar o %c: ", tamanhoPad(51), "", simbolo);
                 scanf("%i", &pos);
                 colocarPeca(pos, usuario);
             }else if(usuario == 3){
-                printf("%*.s%iº RODADA - COMPUTADOR\n", tamanhoPad(21), "", rodada);
+                printf("%*.s%iÂº RODADA - COMPUTADOR\n", tamanhoPad(21), "", rodada);
                 numpc = escolherPecaRand();
                 printarTabuleiro(Gtabuleiro);
-                printf("%*.sO Computador escolheu posicionar uma peça na posição %d!\n", tamanhoPad(55), "", numpc);
+                printf("%*.sO Computador escolheu posicionar uma peÃ§a na posiÃ§Ã£o %d!\n", tamanhoPad(55), "", numpc);
                 colocarPeca(numpc, 3);
             }
             if(usuario == 1){vitoria = checarVitoria(usuario, Gposicoes1);}
@@ -854,13 +854,13 @@ void JogoVelhaPve(void)
             printf("\n");
             if(vitoria == 1){
                 salvarStats(vitoria, 2);
-                printf("%*.s\aParabéns Jogador 1 você ganhou !!!\n\n", tamanhoPad(34), "");
+                printf("%*.s\aParabÃ©ns Jogador 1 vocÃª ganhou !!!\n\n", tamanhoPad(34), "");
             }else if(vitoria == 3){
                 salvarStats(vitoria, 2);
                 printf("%*.s\aO Computador ganhou !!!\n\n", tamanhoPad(23), "");
             }else{
                 salvarStats(0, 2);
-                printf("%*.s\aDeu velha ! Ninguém ganhou :(\n\n", tamanhoPad(29), "");
+                printf("%*.s\aDeu velha ! NinguÃ©m ganhou :(\n\n", tamanhoPad(29), "");
             }
             printf("%*.sPRESSIONE R PARA JOGAR NOVAMENTE | PRESSIONE B PARA VOLTAR AO MENU", tamanhoPad(67), "");
             printf("\n%*.s", tamanhoPad(0), "");
